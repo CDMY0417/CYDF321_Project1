@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 	uint16_t port = atoi(argv[1]);
 
 	//create socket
-	if ((sd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0) {
+	if ((sd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0) {
 		perror("socket creation error"); //socket creation error
 		return FAIL;
 	}
