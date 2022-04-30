@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 		memset(buff, 0, MAXLEN);
 		i = 0;
 		while ((buff[i++] = getchar()) != '\n');
-		write(sd, buff, sizeof(buff));
+		send(sd, buff, sizeof(buff), 0);
 		len = strlen(buff) - 1;
 		if (strncmp("QUIT", buff, (len > 4? len : 4)) == 0) {
 			printf("Disconnected\n");
@@ -63,7 +63,7 @@ int main(int argc, char* argv[])
 
 		//read
 		memset(buff, 0, MAXLEN);
-		read(sd, buff, sizeof(buff));
+		recv(sd, buff, sizeof(buff), 0);
 		printf("From server : %s", buff);
 		len = strlen(buff) - 1;
 		if (strncmp("QUIT", buff, (len > 4? len : 4)) == 0) {

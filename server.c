@@ -64,8 +64,8 @@ int main(int argc, char* argv[])
 	while (1) {
 		//read
 		memset(buff, 0, MAXLEN);
-		read(cd, buff, sizeof(buff));
-		printf("From client : %s", buff);
+		recv(cd, buff, sizeof(buff), 0);
+		printf("From client : %s", buff, 0);
 		len = strlen(buff) - 1;
 		if (strncmp("QUIT", buff, (len > 4? len: 4)) == 0) {
 			printf("Disconnected\n");
@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
 		memset(buff, 0, MAXLEN);
 		i = 0;
 		while ((buff[i++] = getchar()) != '\n');
-		write(cd, buff, sizeof(buff));
+		send(cd, buff, sizeof(buff), 0);
 		len = strlen(buff) - 1;
 		if (strncmp("QUIT", buff, (len > 4? len : 4)) == 0) {
 			printf("Disconnected\n");
