@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #define MAXLEN 100
-#define QUEUELIMIT 3
+#define QUEUELIMIT 1
 #define FAIL -1
 #define SUCCESS 0
 
